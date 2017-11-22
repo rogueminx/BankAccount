@@ -4,10 +4,6 @@ function Account(name, balance) {
 	this.balance = balance;
 };
 
-Account.prototype.deposit = function() {
-
-};
-
 //user interface logic
 $(document).ready(function() {
 	$("form#setup").submit(function(event) {
@@ -15,9 +11,18 @@ $(document).ready(function() {
 		var inputtedName = $("#name").val();
 		var initialDeposit = parseInt($("#initial").val());
 		var newAccount = new Account(inputtedName, initialDeposit);
-		// var mainDeposit = parseInt($("#main").val());
+
+		$("form#addsub").submit(function(event) {
+			event.preventDefault();
+			var deposit = parseInt($("#main").val());
+			// console.log(deposit);
+
+			var newBalance = newAccount.balance + deposit;
+			console.log(newBalance);
+
+		});
+
 		// var withdrawal = parseInt($("#withdrawal").val());
-		// balance.push(name, initialDeposit, mainDeposit, withdrawal);
 		console.log(newAccount);
 	});
 
