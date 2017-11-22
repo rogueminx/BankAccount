@@ -10,30 +10,37 @@
 	<body>
 		<div class="container">
 			<div class="jumbotron">
-				<h1>Bankys's Bank (See?)</h1>
+				<h1>Banksy's Bank (See?)</h1>
 				<h2>Welcome to the bank. Make an initial deposit to start your account, then make deposits or withdrawals as your financial situation requires.</h2>
 			</div>
-			<div class="body">
-				<form id="input">
-					<div class="form-group">
-						<label for="name">Your Name</label>
-						<input id="name" class="form-control" type="text">
-					</div>
-					<div class="form-group">
-						<label for="intial">Initial Deposit</label>
-						<input id="initial" class="form-control" type="number">
-					</div>
-					<div class="form-group">
-						<label for="main">Deposit Amount</label>
-						<input id="main" class="form-control" type="number">
-					</div>
-					<div class="form-group">
-						<label for="withdrawal">Withdrawal Amount</label>
-						<input id="withdrawal" class="form-control" type="number">
-					</div>
-						<button id="submit" type="submit" class="btn btn-danger">Submit</button>
-					</div>
-				</form>
+			<div class="row">
+				<div class="col-md-6" id="set-up">
+					<form id="setup">
+						<div class="form-group">
+							<label for="name">Your Name</label>
+							<input id="name" class="form-control" type="text">
+						</div>
+						<div class="form-group">
+							<label for="intial">Initial Deposit</label>
+							<input id="initial" class="form-control" type="number">
+						</div>
+						<button id="setup-submit" type="submit" class="btn btn-danger">Open Acccount</button>
+					</form>
+				</div>
+				<div class="col-md-6">
+					<form id="addsub">
+						<div class="form-group">
+							<label for="main">Deposit Amount</label>
+							<input id="main" class="form-control" type="number">
+						</div>
+						<div class="form-group">
+							<label for="withdrawal">Withdrawal Amount</label>
+							<input id="withdrawal" class="form-control" type="number">
+						</div>
+							<button id="addsub-submit" type="submit" class="btn btn-danger">Submit</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</body>
