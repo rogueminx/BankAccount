@@ -20,25 +20,31 @@ $(document).ready(function() {
 		event.preventDefault();
 		var inputtedName = $("#name").val();
 		var initialDeposit = parseInt($("#initial").val());
-		var newAccount = new Account(inputtedName, initialDeposit);
-		
+		newAccount = new Account(inputtedName, initialDeposit);
 
 		$("form#addsub").submit(function(event) {
 			event.preventDefault();
-			if (!isNaN(parseInt($("#main").val()))) {
-				newAccount.newDeposit.unshift(parseInt($("#main").val()));
+		var deposit = parseInt($("#main").val());
+		var withdrawal = parseInt($("#withdrawal").val());
+
+			if (!isNaN(deposit)) {
+				newAccount.newDeposit.unshift(deposit);
 				newAccount.Deposit();
+				$(".returnedDeposits").prepend("<li>" + newAccount.newDeposit[0] + "</li>");
 			};
-			if (!isNaN(parseInt($("#withdrawal").val()))) {
-				newAccount.newWithdrawal.unshift(parseInt($("#withdrawal").val()));
+			if (!isNaN(withdrawal)) {
+				newAccount.newWithdrawal.unshift(withdrawal);
 				newAccount.Withdrawal();
+				$(".returnedWithdrawals").prepend("<li>" + newAccount.newWithdrawal[0] + "</li>");
 			};
 			console.log(newAccount);
+			$("#returnedBalance").text("$" + newAccount.balance + ".00");
 
 
 		});
 
-		// var withdrawal = parseInt($("#withdrawal").val());
+		$("#returnedName").text(newAccount.name);
+		$("#returnedBalance").text("$" + newAccount.balance + ".00");
 		console.log(newAccount);
 	});
 
