@@ -2,6 +2,16 @@
 function Account(name, balance) {
 	this.name = name;
 	this.balance = balance;
+	this.newDeposit = [];
+	this.newWithdrawal = [];
+};
+
+Account.prototype.Deposit = function() {
+  return this.balance += this.newDeposit[0];
+};
+
+Account.prototype.Withdrawal = function() {
+  return this.balance -= this.newWithdrawal[0];
 };
 
 //user interface logic
@@ -11,14 +21,20 @@ $(document).ready(function() {
 		var inputtedName = $("#name").val();
 		var initialDeposit = parseInt($("#initial").val());
 		var newAccount = new Account(inputtedName, initialDeposit);
+		
 
 		$("form#addsub").submit(function(event) {
 			event.preventDefault();
-			var deposit = parseInt($("#main").val());
-			// console.log(deposit);
+			if (!isNaN(parseInt($("#main").val()))) {
+				newAccount.newDeposit.unshift(parseInt($("#main").val()));
+				newAccount.Deposit();
+			};
+			if (!isNaN(parseInt($("#withdrawal").val()))) {
+				newAccount.newWithdrawal.unshift(parseInt($("#withdrawal").val()));
+				newAccount.Withdrawal();
+			};
+			console.log(newAccount);
 
-			var newBalance = newAccount.balance + deposit;
-			console.log(newBalance);
 
 		});
 
